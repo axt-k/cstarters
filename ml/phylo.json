@@ -1,0 +1,1681 @@
+[
+    {
+        "name": "Proteobacteria",
+        "value": 89,
+        "values": {
+            "AR": 26,
+            "SCFA": 14,
+            "MCFA": 9,
+            "LCFA": 40
+        },
+        "children": [
+            {
+                "name": "Gammaproteobacteria",
+                "value": 63,
+                "values": {
+                    "AR": 19,
+                    "SCFA": 8,
+                    "MCFA": 6,
+                    "LCFA": 30
+                },
+                "children": [
+                    {
+                        "name": "Vibrionales",
+                        "value": 5,
+                        "values": {
+                            "AR": 5,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Vibrionaceae",
+                                "value": 5,
+                                "values": {
+                                    "AR": 5,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Vibrio",
+                                        "value": 5,
+                                        "values": {
+                                            "AR": 5,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Xanthomonadales",
+                        "value": 4,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 3,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Xanthomonadaceae",
+                                "value": 4,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 3,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Stenotrophomonas",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Lysobacter",
+                                        "value": 3,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 3,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Enterobacterales",
+                        "value": 13,
+                        "values": {
+                            "AR": 5,
+                            "SCFA": 4,
+                            "MCFA": 1,
+                            "LCFA": 3
+                        },
+                        "children": [
+                            {
+                                "name": "Pectobacteriaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Dickeya",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Morganellaceae",
+                                "value": 10,
+                                "values": {
+                                    "AR": 3,
+                                    "SCFA": 4,
+                                    "MCFA": 1,
+                                    "LCFA": 2
+                                },
+                                "children": [
+                                    {
+                                        "name": "Photorhabdus",
+                                        "value": 2,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Xenorhabdus",
+                                        "value": 8,
+                                        "values": {
+                                            "AR": 2,
+                                            "SCFA": 4,
+                                            "MCFA": 1,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Enterobacteriaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Escherichia",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Yersiniaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Yersinia",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pseudomonadales",
+                        "value": 37,
+                        "values": {
+                            "AR": 5,
+                            "SCFA": 4,
+                            "MCFA": 2,
+                            "LCFA": 26
+                        },
+                        "children": [
+                            {
+                                "name": "Pseudomonadaceae",
+                                "value": 37,
+                                "values": {
+                                    "AR": 5,
+                                    "SCFA": 4,
+                                    "MCFA": 2,
+                                    "LCFA": 26
+                                },
+                                "children": [
+                                    {
+                                        "name": "Azotobacter",
+                                        "value": 3,
+                                        "values": {
+                                            "AR": 3,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Pseudomonas",
+                                        "value": 34,
+                                        "values": {
+                                            "AR": 2,
+                                            "SCFA": 4,
+                                            "MCFA": 2,
+                                            "LCFA": 26
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Aeromonadales",
+                        "value": 1,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Aeromonadaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Aeromonas",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Alteromonadales",
+                        "value": 1,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Pseudoalteromonadaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Pseudoalteromonas",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Moraxellales",
+                        "value": 1,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Moraxellaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Acinetobacter",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Oceanospirillales",
+                        "value": 1,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 1
+                        },
+                        "children": [
+                            {
+                                "name": "Saccharospirillaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Gynuella",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Alphaproteobacteria",
+                "value": 3,
+                "values": {
+                    "AR": 1,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 2
+                },
+                "children": [
+                    {
+                        "name": "Rhodospirillales",
+                        "value": 2,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 2
+                        },
+                        "children": [
+                            {
+                                "name": "Rhodospirillaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Tistrella",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Thalassospiraceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Thalassospira",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Rhodobacterales",
+                        "value": 1,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Rhodobacteraceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Paracoccus",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Betaproteobacteria",
+                "value": 19,
+                "values": {
+                    "AR": 3,
+                    "SCFA": 6,
+                    "MCFA": 2,
+                    "LCFA": 8
+                },
+                "children": [
+                    {
+                        "name": "Neisseriales",
+                        "value": 3,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 2,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Chromobacteriaceae",
+                                "value": 3,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 2,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Chromobacterium",
+                                        "value": 3,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 2,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Burkholderiales",
+                        "value": 16,
+                        "values": {
+                            "AR": 2,
+                            "SCFA": 4,
+                            "MCFA": 2,
+                            "LCFA": 8
+                        },
+                        "children": [
+                            {
+                                "name": "Burkholderiaceae",
+                                "value": 12,
+                                "values": {
+                                    "AR": 2,
+                                    "SCFA": 4,
+                                    "MCFA": 2,
+                                    "LCFA": 4
+                                },
+                                "children": [
+                                    {
+                                        "name": "Paraburkholderia",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Mycetohabitans",
+                                        "value": 4,
+                                        "values": {
+                                            "AR": 2,
+                                            "SCFA": 1,
+                                            "MCFA": 1,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Burkholderia",
+                                        "value": 6,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 3,
+                                            "MCFA": 1,
+                                            "LCFA": 2
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Ralstonia",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Comamonadaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Sphaerotilaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Schlegelella",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Oxalobacteraceae",
+                                "value": 2,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 2
+                                },
+                                "children": [
+                                    {
+                                        "name": "Janthinobacterium",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Massilia group",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Epsilonproteobacteria",
+                "value": 1,
+                "values": {
+                    "AR": 0,
+                    "SCFA": 0,
+                    "MCFA": 1,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Campylobacterales",
+                        "value": 1,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 1,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Sulfurospirillaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 1,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Sulfurospirillum",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 1,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Deltaproteobacteria",
+                "value": 3,
+                "values": {
+                    "AR": 3,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Myxococcales",
+                        "value": 3,
+                        "values": {
+                            "AR": 3,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Cystobacterineae",
+                                "value": 3,
+                                "values": {
+                                    "AR": 3,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Myxococcaceae",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Archangiaceae",
+                                        "value": 2,
+                                        "values": {
+                                            "AR": 2,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Actinobacteria",
+        "value": 77,
+        "values": {
+            "AR": 37,
+            "SCFA": 16,
+            "MCFA": 7,
+            "LCFA": 17
+        },
+        "children": [
+            {
+                "name": "Micromonosporales",
+                "value": 4,
+                "values": {
+                    "AR": 2,
+                    "SCFA": 1,
+                    "MCFA": 0,
+                    "LCFA": 1
+                },
+                "children": [
+                    {
+                        "name": "Micromonosporaceae",
+                        "value": 4,
+                        "values": {
+                            "AR": 2,
+                            "SCFA": 1,
+                            "MCFA": 0,
+                            "LCFA": 1
+                        },
+                        "children": [
+                            {
+                                "name": "Micromonospora",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "unclassified Micromonospora",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Salinispora",
+                                "value": 2,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 1,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Actinoplanes",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Micrococcales",
+                "value": 1,
+                "values": {
+                    "AR": 1,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Micrococcaceae",
+                        "value": 1,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Rothia",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Streptomycetales",
+                "value": 54,
+                "values": {
+                    "AR": 25,
+                    "SCFA": 11,
+                    "MCFA": 6,
+                    "LCFA": 12
+                },
+                "children": [
+                    {
+                        "name": "Streptomycetaceae",
+                        "value": 54,
+                        "values": {
+                            "AR": 25,
+                            "SCFA": 11,
+                            "MCFA": 6,
+                            "LCFA": 12
+                        },
+                        "children": [
+                            {
+                                "name": "Kitasatospora",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "unclassified Kitasatospora",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Streptomyces",
+                                "value": 53,
+                                "values": {
+                                    "AR": 24,
+                                    "SCFA": 11,
+                                    "MCFA": 6,
+                                    "LCFA": 12
+                                },
+                                "children": [
+                                    {
+                                        "name": "Streptomyces rochei group",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 1,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Streptomyces violaceusniger group",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 1,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Streptomyces albidoflavus group",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 1,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Streptomyces aurantiacus group",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Corynebacteriales",
+                "value": 6,
+                "values": {
+                    "AR": 3,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 3
+                },
+                "children": [
+                    {
+                        "name": "Mycobacteriaceae",
+                        "value": 3,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 3
+                        },
+                        "children": [
+                            {
+                                "name": "Mycobacterium",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Mycobacterium avium complex (MAC)",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Mycobacteroides",
+                                "value": 2,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 2
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Nocardiaceae",
+                        "value": 3,
+                        "values": {
+                            "AR": 3,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Rhodococcus",
+                                "value": 3,
+                                "values": {
+                                    "AR": 3,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Rhodococcus erythropolis group",
+                                        "value": 2,
+                                        "values": {
+                                            "AR": 2,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Pseudonocardiales",
+                "value": 8,
+                "values": {
+                    "AR": 2,
+                    "SCFA": 4,
+                    "MCFA": 1,
+                    "LCFA": 1
+                },
+                "children": [
+                    {
+                        "name": "Pseudonocardiaceae",
+                        "value": 8,
+                        "values": {
+                            "AR": 2,
+                            "SCFA": 4,
+                            "MCFA": 1,
+                            "LCFA": 1
+                        },
+                        "children": [
+                            {
+                                "name": "Thermocrispum",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 1,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Saccharopolyspora",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 1,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Amycolatopsis",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 1,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Saccharothrix",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Saccharomonospora",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 1,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Kibdelosporangium",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "unclassified Kibdelosporangium",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Actinosynnema",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Goodfellowiella",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 1,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Streptosporangiales",
+                "value": 3,
+                "values": {
+                    "AR": 3,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Streptosporangiaceae",
+                        "value": 1,
+                        "values": {
+                            "AR": 1,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Planobispora",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Nocardiopsaceae",
+                        "value": 2,
+                        "values": {
+                            "AR": 2,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Nocardiopsis",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            },
+                            {
+                                "name": "Thermobifida",
+                                "value": 1,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Bacteroidetes",
+        "value": 1,
+        "values": {
+            "AR": 0,
+            "SCFA": 1,
+            "MCFA": 0,
+            "LCFA": 0
+        },
+        "children": [
+            {
+                "name": "Chitinophagia",
+                "value": 1,
+                "values": {
+                    "AR": 0,
+                    "SCFA": 1,
+                    "MCFA": 0,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Chitinophagales",
+                        "value": 1,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 1,
+                            "MCFA": 0,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Chitinophagaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 1,
+                                    "MCFA": 0,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Chitinophaga",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 1,
+                                            "MCFA": 0,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Verrucomicrobia",
+        "value": 2,
+        "values": {
+            "AR": 0,
+            "SCFA": 1,
+            "MCFA": 1,
+            "LCFA": 0
+        },
+        "children": [
+            {
+                "name": "Opitutae",
+                "value": 2,
+                "values": {
+                    "AR": 0,
+                    "SCFA": 1,
+                    "MCFA": 1,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Opitutales",
+                        "value": 2,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 1,
+                            "MCFA": 1,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Opitutaceae",
+                                "value": 2,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 1,
+                                    "MCFA": 1,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Candidatus Synoicihabitans",
+                                        "value": 2,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 1,
+                                            "MCFA": 1,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Cyanobacteria",
+        "value": 2,
+        "values": {
+            "AR": 0,
+            "SCFA": 0,
+            "MCFA": 0,
+            "LCFA": 2
+        },
+        "children": [
+            {
+                "name": "Oscillatoriophycideae",
+                "value": 1,
+                "values": {
+                    "AR": 0,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 1
+                },
+                "children": [
+                    {
+                        "name": "Oscillatoriales",
+                        "value": 1,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 1
+                        },
+                        "children": [
+                            {
+                                "name": "Microcoleaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "Planktothrix",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Nostocales",
+                "value": 1,
+                "values": {
+                    "AR": 0,
+                    "SCFA": 0,
+                    "MCFA": 0,
+                    "LCFA": 1
+                },
+                "children": [
+                    {
+                        "name": "Nostocaceae",
+                        "value": 1,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 0,
+                            "LCFA": 1
+                        },
+                        "children": [
+                            {
+                                "name": "Anabaena",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 1
+                                },
+                                "children": [
+                                    {
+                                        "name": "unclassified Anabaena",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Firmicutes",
+        "value": 22,
+        "values": {
+            "AR": 4,
+            "SCFA": 1,
+            "MCFA": 10,
+            "LCFA": 7
+        },
+        "children": [
+            {
+                "name": "Clostridia",
+                "value": 1,
+                "values": {
+                    "AR": 0,
+                    "SCFA": 0,
+                    "MCFA": 1,
+                    "LCFA": 0
+                },
+                "children": [
+                    {
+                        "name": "Eubacteriales",
+                        "value": 1,
+                        "values": {
+                            "AR": 0,
+                            "SCFA": 0,
+                            "MCFA": 1,
+                            "LCFA": 0
+                        },
+                        "children": [
+                            {
+                                "name": "Clostridiaceae",
+                                "value": 1,
+                                "values": {
+                                    "AR": 0,
+                                    "SCFA": 0,
+                                    "MCFA": 1,
+                                    "LCFA": 0
+                                },
+                                "children": [
+                                    {
+                                        "name": "Clostridium",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 1,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Bacilli",
+                "value": 21,
+                "values": {
+                    "AR": 4,
+                    "SCFA": 1,
+                    "MCFA": 9,
+                    "LCFA": 7
+                },
+                "children": [
+                    {
+                        "name": "Bacillales",
+                        "value": 21,
+                        "values": {
+                            "AR": 4,
+                            "SCFA": 1,
+                            "MCFA": 9,
+                            "LCFA": 7
+                        },
+                        "children": [
+                            {
+                                "name": "Paenibacillaceae",
+                                "value": 13,
+                                "values": {
+                                    "AR": 1,
+                                    "SCFA": 1,
+                                    "MCFA": 9,
+                                    "LCFA": 2
+                                },
+                                "children": [
+                                    {
+                                        "name": "Brevibacillus",
+                                        "value": 3,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 3,
+                                            "LCFA": 0
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Paenibacillus",
+                                        "value": 10,
+                                        "values": {
+                                            "AR": 1,
+                                            "SCFA": 1,
+                                            "MCFA": 6,
+                                            "LCFA": 2
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Bacillaceae",
+                                "value": 8,
+                                "values": {
+                                    "AR": 3,
+                                    "SCFA": 0,
+                                    "MCFA": 0,
+                                    "LCFA": 5
+                                },
+                                "children": [
+                                    {
+                                        "name": "Bacillus",
+                                        "value": 7,
+                                        "values": {
+                                            "AR": 3,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 4
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Niallia",
+                                        "value": 1,
+                                        "values": {
+                                            "AR": 0,
+                                            "SCFA": 0,
+                                            "MCFA": 0,
+                                            "LCFA": 1
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,81 @@
+"# 732,766,769",,,,,,
+,id,mibig_id,category,specificity_code,organism_genus,full_organism
+69,COND0000354-pstB,BGC0000354,0,MPT,Actinoplanes,Actinoplanes friuliensis
+75,COND0000369-hasV,BGC0000369,1,EPS,Anabaena,Anabaena sp. Syke748
+12,COND0000407-ppsA,BGC0000407,1,QLS,Bacillus,Bacillus subtilis subsp. Subtilis
+44,COND0001095-RBAM_018460,BGC0001095,1,QMS,Bacillus,Bacillus velezensis FZB42
+61,COND0000433-srfAA,BGC0000433,1,QPS,Bacillus,Bacillus velezensis FZB42
+66,COND0001715-octA,BGC0001715,1,LSC,Bacillus,Bacillus circulans
+20,COND0001536-ATY37608.1,BGC0001536,0,REC,Brevibacillus,Brevibacillus laterosporus
+41,COND0001796-BrL25_22185,BGC0001796,0,QQV,Brevibacillus,Brevibacillus laterosporus DSM 25
+77,COND0002432-BRLA_c025650,BGC0002432,0,REC,Brevibacillus,Brevibacillus laterosporus LMG 15441
+23,COND0002050-necA,BGC0002050,0,MNN,Burkholderia,Burkholderia sp. B8(2020)
+30,COND0001599-I35_4189,BGC0001599,0,MNV,Burkholderia,Burkholderia cenocepacia H111
+47,COND0002336-H9D14_RS10900,BGC0002336,0,TTT,Burkholderia,Burkholderia gladioli
+37,COND0000997-glbF,BGC0000997,0,MNN,Caldimonas,Caldimonas brevitalea
+74,COND0001608-AAW51_2719,BGC0001608,0,EKS,Caldimonas,Caldimonas brevitalea
+7,COND0002118-J6386_25975,BGC0002118,0,QPH,Candidatus,Candidatus Synoicihabitans palmerolidicus
+72,COND0002119-J6386_25750,BGC0002119,0,QPH,Candidatus,Candidatus Synoicihabitans palmerolidicus
+27,COND0002660-SAMN04488128_1011792,BGC0002660,0,AES,Chitinophaga,Chitinophaga eiseniae
+73,COND0001686-BN712_00198,BGC0001686,0,QWS,Clostridium,Clostridium sp. CAG:567
+56,COND0001791-YC6258_RS23075,BGC0001791,1,EHN,Gynuella,Gynuella sunshinyii YC6258
+48,COND0002384-QWM97319.1,BGC0002384,1,ISN,Lysobacter,Lysobacter sp.
+65,COND0001657-lesA,BGC0001657,1,ISN,Lysobacter,Lysobacter sp. RH2180-5
+50,COND0002044-DPH57_09150,BGC0002044,1,EPN,Massilia,Massilia sp. YMA4
+31,COND0000362-pstA,BGC0000362,1,ISN,Mycobacterium,Mycobacterium avium
+4,COND0000403-plpD,BGC0000403,1,LPG,Paenibacillus,Paenibacillus elgii
+6,COND0002653-BS614_29910,BGC0002653,0,LAA,Paenibacillus,Paenibacillus xylanexedens
+16,COND0001192-AJM89738.1,BGC0001192,0,LAA,Paenibacillus,Paenibacillus alvei
+17,COND0001152-fusA,BGC0001152,1,RYC,Paenibacillus,Paenibacillus polymyxa
+18,COND0001843-EGM68_11575,BGC0001843,0,RNC,Paenibacillus,Paenibacillus sp. M-152
+25,COND0000400-pbtA,BGC0000400,0,MSC,Paenibacillus,Paenibacillus sp. OSY-SE
+40,COND0000449-triD,BGC0000449,1,RTC,Paenibacillus,Paenibacillus terrae
+32,COND0001844-RBRH_RS16800,BGC0001844,0,MNN,Paraburkholderia,Paraburkholderia rhizoxinica HKI 454
+49,COND0000383-PluTT01m_09655,BGC0000383,0,MNS,Photorhabdus,Photorhabdus laumondii subsp. laumondii TTO1
+0,COND0000435-PSPTO_2829,BGC0000435,1,EKN,Pseudomonas,Pseudomonas syringae pv. tomato str. DC3000
+3,COND0002521-psoA,BGC0002521,0,EMN,Pseudomonas,Pseudomonas putida
+5,COND0002379-PRtIB026_34660,BGC0002379,1,ÐTA,Pseudomonas,Pseudomonas sp. RtIB026
+9,COND0002071-CWE01_RS05095,BGC0002071,1,EKN,Pseudomonas,Pseudomonas sp. QS1027
+19,COND0000323-AHZ34232.1,BGC0000323,1,EKN,Pseudomonas,Pseudomonas cichorii
+24,COND0000399-PFL_2145,BGC0000399,1,EKN,Pseudomonas,Pseudomonas protegens Pf-5
+26,COND0000425-sesA,BGC0000425,1,EKN,Pseudomonas,Pseudomonas sp. CMR12a
+29,COND0002522-pdmA,BGC0002522,1,EKN,Pseudomonas,Pseudomonas sp.
+34,COND0001842-Pfl01_2211,BGC0001842,1,EKN,Pseudomonas,Pseudomonas fluorescens Pf0-1
+35,COND0000398-ofaA,BGC0000398,1,EKN,Pseudomonas,Pseudomonas sp. CMR12a
+36,COND0002092-steA,BGC0002092,1,EKN,Pseudomonas,Pseudomonas sp.
+38,COND0000447-taaA,BGC0000447,1,EKN,Pseudomonas,Pseudomonas costantinii
+39,COND0002518-GE543_00950,BGC0002518,1,EKN,Pseudomonas,Pseudomonas sp. SZ57
+43,COND0001980-lokA,BGC0001980,1,EKN,Pseudomonas,Pseudomonas sp.
+45,COND0002351-thf1,BGC0002351,1,ETN,Pseudomonas,Pseudomonas sp. SHC52
+46,COND0001806-APU91750.1,BGC0001806,0,EKN,Pseudomonas,Pseudomonas tolaasii
+54,COND0002548-banA,BGC0002548,1,EKN,Pseudomonas,Pseudomonas sp.
+58,COND0001149-BN844_0706,BGC0001149,1,EKN,Pseudomonas,Pseudomonas sp. SHC52
+67,COND0001346-banA,BGC0001346,1,EKN,Pseudomonas,Pseudomonas fluorescens
+78,COND0001509-A8O26_RS13975,BGC0001509,1,EKN,Pseudomonas,Pseudomonas fluorescens
+15,COND0001363-RSp0641,BGC0001363,0,NQI,Ralstonia,Ralstonia solanacearum GMI1000
+57,COND0002424-sacE,BGC0002424,0,LML,Saccharothrix,Saccharothrix sp.
+1,COND0001967-adeG,BGC0001967,0,MNN,Streptomyces,Streptomyces hawaiiensis
+10,COND0001984-speA,BGC0001984,0,MQN,Streptomyces,Streptomyces sp.
+13,COND0001519-STRAU_0349,BGC0001519,1,VPT,Streptomyces,Streptomyces aurantiacus JA 4570
+14,COND0002697-SCATT_32630,BGC0002697,0,VAA,Streptomyces,Streptomyces cattleya NRRL 8057 = DSM 46488
+22,COND0002735-ABB07_39195,BGC0002735,0,VGT,Streptomyces,Streptomyces incarnatus
+33,COND0002367-SCAB_3321,BGC0002367,0,LQS,Streptomyces,Streptomyces scabiei 87.22
+42,COND0001370-cda2PSI,BGC0001370,0,MSS,Streptomyces,Streptomyces rochei
+51,COND0000336-dptA,BGC0000336,0,LES,Streptomyces,Streptomyces filamentosus NRRL 11379
+52,COND0000431-SSGG_00678,BGC0000431,0,VAS,Streptomyces,Streptomyces filamentosus NRRL 15998
+59,COND0002359-FM076_21195,BGC0002359,1,MNN,Streptomyces,Streptomyces albus subsp. Chlorinus
+60,COND0001574-ATY72525.1,BGC0001574,0,MNA,Streptomyces,Streptomyces thioluteus
+63,COND0002430-gauA,BGC0002430,0,MQT,Streptomyces,Streptomyces kanamyceticus
+64,COND0000341-endA,BGC0000341,0,MGS,Streptomyces,Streptomyces fungicidicus
+68,COND0002100-DBP21_21655,BGC0002100,0,MST,Streptomyces,Streptomyces sp. CS147
+71,COND0002666-lgnD,BGC0002666,0,LAL,Streptomyces,Streptomyces sp. MA37
+76,COND0001230-sln9,BGC0001230,1,QNN,Streptomyces,Streptomyces sp. CNB091
+62,COND0001524-Sulba_0748,BGC0001524,0,RIT,Sulfurospirillum,Sulfurospirillum barnesii SES-3
+55,COND0001876-ttcA,BGC0001876,0,LNN,Thalassospira,Thalassospira sp. CNJ-328
+53,COND0001050-ttbA,BGC0001050,0,MNF,Tistrella,Tistrella bauzanensis
+2,COND0002135-XBJ1_RS10015,BGC0002135,0,EDH,Xenorhabdus,Xenorhabdus bovienii SS-2004
+8,COND0001873-Xsze_RS17115,BGC0001873,0,NAA,Xenorhabdus,Xenorhabdus szentirmaii DSM 16338
+11,COND0001968-cdeI,BGC0001968,0,MQT,,uncultured bacterium
+21,COND0002654-UHJ79953.1,BGC0002654,1,LYH,,uncultured bacterium
+28,COND0001203-AKA59447.1,BGC0001203,0,INT,,uncultured bacterium AR_456
+70,COND0001448-mlcK,BGC0001448,0,FQT,,uncultured bacterium

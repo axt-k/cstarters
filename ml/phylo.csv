@@ -1,0 +1,36 @@
+Firmicutes,4,1,10,7
+      Clostridia,,,1,
+      Bacilli,4,1,9,7
+            Bacillales,4,1,9,7
+                  Paenibacillaceae,1,1,9,2
+                  Bacillaceae,3,,,5
+Proteobacteria,26,14,9,40
+      Betaproteobacteria,3,6,2,8
+      Deltaproteobacteria,3,,,
+      Epsilonproteobacteria,,,1,
+      Alphaproteobacteria,1,,,2
+      Gammaproteobacteria,19,8,6,30
+            Moraxellales,1,,,
+            Aeromonadales,1,,,
+            Pseudomonadales,5,4,2,26
+                  Pseudomonadaceae,5,4,2,26
+                        Pseudomonas,2,4,2,26
+                        Azotobacter,3,,,
+            Alteromonadales,1,,,
+            Oceanospirillales,,,,1
+            Xanthomonadales,1,,3,
+            Vibrionales,5,,,
+            Enterobacterales,5,4,1,3
+Actinobacteria,37,16,7,17
+      Corynebacteriales,3,,,3
+      Micromonosporales,2,1,,1
+      Micrococcales,1,,,
+      Streptosporangiales,3,,,
+      Pseudonocardiales,2,4,1,1
+      Streptomycetales,25,11,6,12
+            Streptomycetaceae,25,11,6,12
+                  Streptomyces,24,11,6,12
+                  Kitasatospora,1,,,
+Bacteroidetes,,1,,
+Cyanobacteria,,,,2
+Verrucomicrobia,,1,1,
