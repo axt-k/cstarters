@@ -230,7 +230,7 @@ def plot_starter_pca(out_dir: str, ax: plt.Axes, records: list[DataRecord]) -> N
     for label in SANCTIONED_LABELS:
         if label not in SANCTIONED_LABELS:
             continue
-        jitter = 0.01
+        jitter = 0.025
         x = pcs[labels_category == label, 0]
         y = pcs[labels_category == label, 1]
         color = category_to_color(label)
@@ -242,6 +242,7 @@ def plot_starter_pca(out_dir: str, ax: plt.Axes, records: list[DataRecord]) -> N
         ax.scatter(
             x, y, 
             c=color, 
+            s=120,
             label=f"{label} ({len(x)})",
             edgecolor="black", 
             linewidth=0.5,
@@ -250,8 +251,8 @@ def plot_starter_pca(out_dir: str, ax: plt.Axes, records: list[DataRecord]) -> N
 
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.set_xlabel(f"PC 1 ({explained_variance[0] * 100:.2f}%; 1% jitter added for scatter plot)", fontsize=16)
-    ax.set_ylabel(f"PC 2 ({explained_variance[1] * 100:.2f}%; 1% jitter added for scatter plot)", fontsize=16)
+    ax.set_xlabel(f"PC 1 ({explained_variance[0] * 100:.2f}%; 2.5% jitter added for scatter plot)", fontsize=16)
+    ax.set_ylabel(f"PC 2 ({explained_variance[1] * 100:.2f}%; 2.5% jitter added for scatter plot)", fontsize=16)
     ax.legend(title="Category", title_fontsize="16", fontsize="14")
 
     # Create separate figure for the PCA plot with numbered axes, save to separate file
