@@ -72,6 +72,6 @@ python3 scripts/acylstarter_cheminformatics_analysis.py --data data/dataset.csv 
 
 See `notebooks/ml` for training and evaluating sequence-based models.
 
-## Tree-based predictions
+### Tree-based predictions
 
 See `notebooks/tree` for making predictions with phylogenetic trees.
