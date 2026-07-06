@@ -38,3 +38,9 @@ The cheminformatics analysis is confined to a single script:
 conda activate cstarters
 python3 scripts/acylstarter_cheminformatics_analysis.py --data data/dataset.csv --out-dir out/
 ```
+
+## Train models
+
+```bash
+# TODO
+```
