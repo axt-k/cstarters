@@ -5,10 +5,13 @@ import subprocess
 import tempfile
 import sys
 import csv
+import json
+from importlib.resources import files
+from pathlib import Path
 
 import pandas as pd
 
-ALIGNMENT_PATH = "alignment.fasta"
+import cstarters.data
 
 PROPERTIES_AROMATICITY = {
     'WOLS870101': [936, 884, 924, 98],
@@ -42,6 +45,7 @@ AVG_S_POSITIONS = [96, 97, 98, 349, 352, 814, 818, 924, 932, 936, 938, 944]
 def cli() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--fasta", type=str, required=True)
+    parser.add_argument("--out", type=str, required=False, default=None)
     return parser.parse_args()
 
 def run_mafft_add(reference_alignment, predicted_sequence, output_alignment):
@@ -80,7 +84,9 @@ def parse_fasta(fasta_file):
     return sequences
 
 
-def import_aa_properties(aa_properties_csv="16_aa_properties.csv"):
+def import_aa_properties():
+    aa_properties_csv = Path(files(cstarters.data)).joinpath("16_aa_properties.csv")
+
     aa_properties_ref = {}
     with open(aa_properties_csv, 'r') as aa_properties_file:
         reader = csv.DictReader(aa_properties_file, delimiter=',')
@@ -91,16 +97,15 @@ def import_aa_properties(aa_properties_csv="16_aa_properties.csv"):
                     aa_properties_ref[row["AA_ABREV"]][aa_property] = float(row[aa_property])
     return aa_properties_ref
 
-
 def featurize_alignment(input_sequence, positions, aa_properties_ref):
-    X_pred = pd.DataFrame()
+    features = {}
 
-    for aa_property in positions:
-        for pos in positions[aa_property]:
-            X_pred[f"{aa_property}_{pos}"] = [aa_properties_ref[input_sequence[pos]][aa_property]]
+    for aa_property, aa_positions in positions.items():
+        for pos in aa_positions:
+            aa = input_sequence[pos]
+            features[f"{aa_property}_{pos}"] = [aa_properties_ref[aa][aa_property]]
 
-    return X_pred
-
+    return pd.DataFrame(features)
 
 def average_value_from_seq(seq, positions, aa_property, aa_properties_ref):
     value_sum = 0.0
@@ -131,7 +136,9 @@ def unpickle_model(model_path):
 def main() -> None:
     args = cli()
 
-    predicted_sequence = args.fasta
+    with open(args.fasta, "r") as f:
+        predicted_sequence = f.read()
+    input_file_name_stem = Path(args.fasta).stem
 
     with tempfile.TemporaryDirectory() as temp_dir:
         output_alignment = f"{temp_dir}/output_alignment.fasta"
@@ -139,13 +146,15 @@ def main() -> None:
         temp_predicted_sequence_path = f"{temp_dir}/predicted_sequence.fasta"
         with open(temp_predicted_sequence_path, "w") as f:
             f.write(f">predicted_sequence\n{predicted_sequence}\n")
-        run_mafft_add(ALIGNMENT_PATH, temp_predicted_sequence_path, output_alignment)
+
+        ref_alignment = Path(files(cstarters.data)).joinpath("alignment.fasta")
+        run_mafft_add(ref_alignment, temp_predicted_sequence_path, output_alignment)
 
         parsed_fasta = parse_fasta(output_alignment)
 
         predicted_sequence_aligned = parsed_fasta["predicted_sequence"]
 
-        aa_properties_ref = import_aa_properties("16_aa_properties.csv")
+        aa_properties_ref = import_aa_properties()
 
         X_aromaticity = featurize_alignment(predicted_sequence_aligned, PROPERTIES_AROMATICITY, aa_properties_ref)
 
@@ -153,21 +162,38 @@ def main() -> None:
 
         avg_L = average_value_from_seq(predicted_sequence_aligned, AVG_L_POSITIONS, "vdwvol", aa_properties_ref)
         avg_S = average_value_from_seq(predicted_sequence_aligned, AVG_S_POSITIONS, "vdwvol", aa_properties_ref)
-        X_length = featurize_alignment(predicted_sequence_aligned, PROPERTIES_SIZE, aa_properties_ref)
-        X_length.insert(0, "avg_size_tunnel_L", avg_L)
-        X_length.insert(1, "avg_size_tunnel_S", avg_S)
 
-        ml_aromaticity_model = unpickle_model("../../../src/cstarters/data/ml_aromaticity.pkl")
-        ml_hydroxylation_model = unpickle_model("../../../src/cstarters/data/ml_hydroxylation.pkl")
-        ml_length_model = unpickle_model("../../../src/cstarters/data/ml_length.pkl")
+        # X_length = featurize_alignment(predicted_sequence_aligned, PROPERTIES_SIZE, aa_properties_ref)
+        # X_length.insert(0, "avg_size_tunnel_L", avg_L)
+        # X_length.insert(1, "avg_size_tunnel_S", avg_S)
+        X_length_features = featurize_alignment(predicted_sequence_aligned, PROPERTIES_SIZE, aa_properties_ref)
+        X_length = pd.concat([pd.DataFrame({"avg_size_tunnel_L": [avg_L], "avg_size_tunnel_S": [avg_S]}), X_length_features], axis=1)
+
+        ml_aromaticity_model_path = Path(files(cstarters.data).joinpath("ml_aromaticity.pkl"))
+        ml_hydroxylation_model_path = Path(files(cstarters.data).joinpath("ml_hydroxylation.pkl"))
+        ml_length_model_path = Path(files(cstarters.data).joinpath("ml_length.pkl"))
+
+        ml_aromaticity_model = unpickle_model(ml_aromaticity_model_path)
+        ml_hydroxylation_model = unpickle_model(ml_hydroxylation_model_path)
+        ml_length_model = unpickle_model(ml_length_model_path)
 
         aromaticity_prediction = ml_aromaticity_model.predict(X_aromaticity)
         hydroxylation_prediction = ml_hydroxylation_model.predict(X_hydroxylation)
         length_prediction = ml_length_model.predict(X_length)
 
-        print(f"Predicted aromaticity: {aromaticity_prediction[0]}")
-        print(f"Predicted hydroxylation: {hydroxylation_prediction[0]}")
-        print(f"Predicted length category: {length_prediction[0]}")
+        result_dict = {
+            "input_file_name": input_file_name_stem,
+            "input_sequence": predicted_sequence,
+            "type": str(aromaticity_prediction[0]),
+            "hydroxylation": bool(hydroxylation_prediction[0]),
+            "length": str(length_prediction[0][0]),
+        }
+
+        print(json.dumps(result_dict, indent=2))
+
+        if args.out:
+            with open(args.out, "w") as f_o:
+                f_o.write(json.dumps(result_dict))
 
 
 if __name__ == "__main__":
