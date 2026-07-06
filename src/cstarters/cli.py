@@ -188,12 +188,14 @@ def main() -> None:
         hydroxylation_prediction = ml_hydroxylation_model.predict(X_hydroxylation)
         length_prediction = ml_length_model.predict(X_length)
 
+        predicted_type = str(aromaticity_prediction[0])
+        is_aromatic = predicted_type == "AR"
         result_dict = {
             "input_file_name": input_file_name_stem,
             "input_sequence": predicted_sequence,
-            "type": str(aromaticity_prediction[0]),
-            "hydroxylation": bool(hydroxylation_prediction[0]),
-            "length": str(length_prediction[0][0]),
+            "type": predicted_type,
+            "hydroxylation": bool(hydroxylation_prediction[0]) if not is_aromatic else None,
+            "length": str(length_prediction[0][0]) if not is_aromatic else None,
         }
 
         print(json.dumps(result_dict, indent=2))
