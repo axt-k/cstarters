@@ -18,7 +18,7 @@ dependencies = [
     "numpy",
     "pandas",
     "rdkit==2023.9.4",
-    "scikit-learn==1.5.2",
+    "scikit-learn==1.9.0",
     "scipy==1.17.1",
     "catboost==1.2.10",
     "logomaker==0.8.7",
