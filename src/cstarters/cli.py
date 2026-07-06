@@ -3,7 +3,6 @@
 import argparse
 import subprocess
 import tempfile
-import sys
 import csv
 import json
 from importlib.resources import files
@@ -13,6 +12,7 @@ from importlib.metadata import version, PackageNotFoundError
 import pandas as pd
 
 import cstarters.data
+from cstarters.ml_utils import get_16_aa_properties_path
 
 PROPERTIES_AROMATICITY = {
     'WOLS870101': [936, 884, 924, 98],
@@ -92,7 +92,7 @@ def parse_fasta(fasta_file):
 
 
 def import_aa_properties():
-    aa_properties_csv = Path(files(cstarters.data)).joinpath("16_aa_properties.csv")
+    aa_properties_csv = get_16_aa_properties_path()
 
     aa_properties_ref = {}
     with open(aa_properties_csv, 'r') as aa_properties_file:
@@ -143,9 +143,9 @@ def unpickle_model(model_path):
 def main() -> None:
     args = cli()
 
-    with open(args.fasta, "r") as f:
+    with open(args.seq, "r") as f:
         predicted_sequence = f.read()
-    input_file_name_stem = Path(args.fasta).stem
+    input_file_name_stem = Path(args.seq).stem
 
     with tempfile.TemporaryDirectory() as temp_dir:
         output_alignment = f"{temp_dir}/output_alignment.fasta"
