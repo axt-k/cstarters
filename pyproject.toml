@@ -52,6 +52,7 @@ allow-direct-references = true
 [tool.hatch.build.targets.wheel]
 packages = ["src/cstarters"]
 include = [
+    "src/cstarters/data/alignment.fasta",
     "src/cstarters/data/16_aa_properties.csv",
     "src/cstarters/data/ml_aromaticity.pkl",
     "src/cstarters/data/ml_hydroxylation.pkl",
