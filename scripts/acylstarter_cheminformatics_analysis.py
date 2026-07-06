@@ -164,13 +164,14 @@ def parse_records_from_csv(
     records = []
     for _, row in df.iterrows():
         try:
+            LOGGER.debug(f"Record:\n\tstarter_smiles={row[cname_starter_smiles]}\n\tcategory_starter={row[cname_starter_category]}\n\tgenus_producing_organism={row[cname_genus]}\n\tspecies_producing_organism={row[cname_species]}\n")
             record = DataRecord(
                 starter_smiles=row[cname_starter_smiles],
                 category_starter=row[cname_starter_category],
                 genus_producing_organism=row[cname_genus],
                 species_producing_organism=row[cname_species]
             )
-        except SMILESParseError as e:
+        except (SMILESParseError, TypeError) as e:
             LOGGER.warning(f"Skipping row due to SMILES parsing error: {e}")
             continue
         except COOHGroupNotFoundError as e:
