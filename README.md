@@ -70,6 +70,8 @@ python3 scripts/acylstarter_cheminformatics_analysis.py --data data/dataset.csv 
 
 ### Train models
 
-```bash
-# TODO
-```
+See `notebooks/ml` for training and evaluating sequence-based models.
+
+## Tree-based predictions
+
+See `notebooks/tree` for making predictions with phylogenetic trees.
