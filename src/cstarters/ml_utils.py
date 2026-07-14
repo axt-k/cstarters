@@ -5,12 +5,23 @@ from importlib.resources import files
 import pandas as pd
 import seaborn as sns
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
 from sklearn.inspection import permutation_importance
 from sklearn.model_selection import cross_val_score
 from sklearn.utils import shuffle
 
 import cstarters.data
+
+
+mpl.rcParams["font.family"] = "Helvetica"
+
+
+CUSTOM_CMAP_BLUES = LinearSegmentedColormap.from_list(
+    "custom_blues",
+    ["#ffffff", "#56b4e9"]  # white -> blue
+)
 
 
 def avg(l):
@@ -205,28 +216,47 @@ def ohe_genus(dataset_df, genus_column_name, threshold=5):
 
 
 
-def confusion_matrix_plot(cm, labels, figsize=(4, 3), cmap='Blues', title="Confusion Matrix"):
+def confusion_matrix_plot(
+    cm,
+    labels,
+    figsize=(4, 3),
+    title="Confusion Matrix",
+    save_path=None,
+    save_as_svg=False,
+):
     """Plot a confusion matrix for the cross-validated predictions."""
     correct = 0
     total = 0
     for i in range(len(cm)):
         correct += cm[i][i]
         total += sum(cm[i])
-    accuracy = correct / total       
+    accuracy = correct / total
 
-    plt.figure(figsize=figsize)
+    fig, ax = plt.subplots(figsize=figsize)
     sns.heatmap(
         cm,
         annot=True,
         fmt="d",
-        cmap=cmap,
+        cmap=CUSTOM_CMAP_BLUES,
         xticklabels=labels,
         yticklabels=labels,
+        annot_kws={"fontsize": 11, "color": "black"},
+        cbar=True,
+        ax=ax,
     )
-    plt.xlabel("Predicted")
-    plt.ylabel("True")
-    plt.title(title + f" (Accuracy: {accuracy:.3f})")
+    ax.set_xlabel("Predicted classes", fontsize=12)
+    ax.set_ylabel("True classes", fontsize=12)
+    ax.set_title(f"{title} (Accuracy: {accuracy:.3f})", fontsize=13)
+    ax.tick_params(labelsize=11)
     plt.tight_layout()
+
+    if save_path is not None:
+        save_path = Path(save_path)
+        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        if save_as_svg:
+            svg_path = save_path if save_path.suffix.lower() == ".svg" else save_path.with_suffix(".svg")
+            plt.savefig(svg_path, bbox_inches="tight")
+
     plt.show()
 
 
@@ -250,11 +280,18 @@ def plot_feature_importances(model, feature_names, combine_at_position=True, top
 
     top_importances = importances.head(top_n).sort_values()
 
-    plt.figure(figsize=(8, max(4, top_n * 0.3)))
-    top_importances.plot(kind="barh")
-    plt.xlabel("Feature importance")
-    plt.ylabel("Residue position" if combine_at_position else "Feature")
-    plt.title(f"Top {top_n} feature importances")
+    fig, ax = plt.subplots(figsize=(8, max(4, top_n * 0.3)))
+    top_importances.plot(
+        kind="barh",
+        color="#56b4e9",
+        edgecolor="black",
+        linewidth=0.8,
+        ax=ax,
+    )
+    ax.set_xlabel("Feature importance", fontsize=12)
+    ax.set_ylabel("Residue position" if combine_at_position else "Feature", fontsize=12)
+    ax.set_title(f"Top {top_n} feature importances", fontsize=14)
+    ax.tick_params(labelsize=11)
     plt.tight_layout()
     plt.show()
 
