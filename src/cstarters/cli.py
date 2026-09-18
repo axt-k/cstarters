@@ -192,9 +192,26 @@ def main() -> None:
             "input_file_name": input_file_name_stem,
             "input_sequence": predicted_sequence,
             "type": predicted_type,
-            "hydroxylation": bool(hydroxylation_prediction[0]) if args.show_all or not is_aromatic else None,
+            "hydroxylation": str(hydroxylation_prediction[0]) == "TRUE" if args.show_all or not is_aromatic else None,
             "length": str(length_prediction[0][0]) if args.show_all or not is_aromatic else None,
         }
+
+        # Add probabilities to output
+        for name, model, features in [
+            ("type", ml_aromaticity_model, X_aromaticity),
+            ("hydroxylation", ml_hydroxylation_model, X_hydroxylation),
+            ("length", ml_length_model, X_length),
+        ]:
+            result_dict[f"{name}_probabilities"] = (
+                {
+                    str(label): float(probability)
+                    for label, probability in zip(
+                        model.classes_,model.predict_proba(features)[0]
+                    )
+                }
+                if name == "type" or args.show_all or not is_aromatic
+                else None
+            )
 
         print(json.dumps(result_dict, indent=2))
 

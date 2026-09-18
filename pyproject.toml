@@ -22,6 +22,8 @@ dependencies = [
     "catboost==1.2.10",
     "logomaker==0.8.7",
     "biopython==1.87",
+    "ipykernel",
+    "plotly"
 ]
 
 classifiers = [

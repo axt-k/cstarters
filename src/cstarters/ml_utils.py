@@ -30,10 +30,12 @@ def avg(l):
         t += i
     return t/len(l)
 
-def load_dataset(path="cstarters_dataset.csv"):
+def load_dataset(path="cstarters_dataset.csv", extra_columns=[]):
     """Load the dataset from a CSV file."""
     dataset_df = pd.read_csv(path)
     relevant_columns = ["cs_accession", "starter_beta_hydroxylation", "starter_category", "aligned_sequence", "ncbi_organism_genus"]
+    if len(extra_columns) != 0:
+        relevant_columns.extend(extra_columns)
     dataset_df = dataset_df[relevant_columns]
     
     dataset_df["starter_category"] = dataset_df["starter_category"].replace(
