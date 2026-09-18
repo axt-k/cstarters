@@ -1,5 +1,7 @@
 # Cstarter-domain substrate specificity prediction
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22823141.svg)](https://doi.org/10.5281/zenodo.22823141)
+
 Cstarters is a substrate specificity prediction pipeline for condenstation starter domains.
 
 ## Making predictions
