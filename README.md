@@ -26,8 +26,8 @@ conda config --env --set subdir osx-64
 Install CLI with dependencies:
 
 ```bash
-git clone https://github.com/axt-k/lipopeptides.git
-cd lipopeptides
+git clone https://github.com/axt-k/cstarters.git
+cd cstarters
 python -m pip install --upgrade pip
 pip install -e .
 conda install mafft==7.525
