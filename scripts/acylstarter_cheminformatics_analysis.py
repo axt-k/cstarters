@@ -4,7 +4,7 @@ import argparse
 import logging
 import os
 import typing as ty
-from collections import deque
+from collections import Counter, deque
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -14,6 +14,8 @@ import pandas as pd
 from rdkit import Chem, DataStructs
 from rdkit.Chem import rdFingerprintGenerator
 from sklearn.decomposition import PCA
+
+from cstarters.ml_utils import load_dataset
 
 # Use Arial font for plots
 plt.rcParams["font.family"] = "Arial"
@@ -77,7 +79,7 @@ def cli() -> argparse.Namespace:
     parser.add_argument("--out-dir", "-o", type=Path, required=True, help="output directory to save the results")
 
     # Optional arguments
-    parser.add_argument("--cname-starter-smiles", "-s", type=str, default="starter_canonical_smiles", help="column name for starter SMILES in the input data (default: 'starter_canonical_smiles')")
+    parser.add_argument("--cname-starter-smiles", "-s", type=str, default="starter_smiles", help="column name for starter SMILES in the input data (default: 'starter_canonical_smiles')")
     parser.add_argument("--cname-starter-category", "-c", type=str, default="starter_category", help="column name for starter category in the input data (default: 'starter_category')")
     parser.add_argument("--cname-genus", "-g", type=str, default="ncbi_organism_genus", help="column name for genus in the input data (default: 'ncbi_organism_genus')")
     parser.add_argument("--cname-species", "-p", type=str, default="ncbi_organism_species", help="column name for species in the input data (default: 'ncbi_organism_species')")
@@ -161,6 +163,11 @@ def parse_records_from_csv(
         
     # Create DataRecord objects from the DataFrame
     records = []
+    bgc_accessions = set()
+    cstarter_accessions = set()
+    superkingdoms = Counter()
+    genera = Counter()
+    species = Counter()
     for _, row in df.iterrows():
         try:
             LOGGER.debug(f"Record:\n\tstarter_smiles={row[cname_starter_smiles]}\n\tcategory_starter={row[cname_starter_category]}\n\tgenus_producing_organism={row[cname_genus]}\n\tspecies_producing_organism={row[cname_species]}\n")
@@ -177,6 +184,14 @@ def parse_records_from_csv(
             LOGGER.warning(f"Skipping row due to missing COOH group: {e}")
             continue
         records.append(record)
+        bgc_accession = row["mibig_v4_accession"]
+        cstarter_accession = row["cs_accession"]
+        if bgc_accession not in bgc_accessions:
+            superkingdoms[row["ncbi_organism_superkingdom"]] += 1
+            genera[row["ncbi_organism_genus"]] += 1
+            species[row["ncbi_organism_species"]] += 1
+        bgc_accessions.add(bgc_accession)
+        cstarter_accessions.add(cstarter_accession)
 
     LOGGER.info(f"Parsed {len(records)} records from {path}")
     return records
@@ -528,6 +543,7 @@ def main() -> None:
     labels_category = np.array([mol.category_starter for mol in records])
 
     backbones, backbone_mols, backbone_carbons = [], [], []
+    ars = 0
     for mol, label in zip(starter_mols, labels_category):
         if label in SANCTIONED_LABELS:
             backbone_inds = retrieve_backbone(mol)
@@ -535,6 +551,8 @@ def main() -> None:
             if label != "AR":
                 backbone_carbon_count = str(Chem.MolToSmiles(mol)).upper().count("C")
                 backbone_carbons.append(backbone_carbon_count)
+            else:
+                ars += 1
 
             backbone_mols.append(mol)
         else:
