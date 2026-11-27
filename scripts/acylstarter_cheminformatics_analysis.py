@@ -4,7 +4,7 @@ import argparse
 import logging
 import os
 import typing as ty
-from collections import deque
+from collections import Counter, deque
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -14,6 +14,8 @@ import pandas as pd
 from rdkit import Chem, DataStructs
 from rdkit.Chem import rdFingerprintGenerator
 from sklearn.decomposition import PCA
+
+from cstarters.ml_utils import load_dataset
 
 # Use Arial font for plots
 plt.rcParams["font.family"] = "Arial"
@@ -77,7 +79,7 @@ def cli() -> argparse.Namespace:
     parser.add_argument("--out-dir", "-o", type=Path, required=True, help="output directory to save the results")
 
     # Optional arguments
-    parser.add_argument("--cname-starter-smiles", "-s", type=str, default="starter_canonical_smiles", help="column name for starter SMILES in the input data (default: 'starter_canonical_smiles')")
+    parser.add_argument("--cname-starter-smiles", "-s", type=str, default="starter_smiles", help="column name for starter SMILES in the input data (default: 'starter_smiles')")
     parser.add_argument("--cname-starter-category", "-c", type=str, default="starter_category", help="column name for starter category in the input data (default: 'starter_category')")
     parser.add_argument("--cname-genus", "-g", type=str, default="ncbi_organism_genus", help="column name for genus in the input data (default: 'ncbi_organism_genus')")
     parser.add_argument("--cname-species", "-p", type=str, default="ncbi_organism_species", help="column name for species in the input data (default: 'ncbi_organism_species')")
@@ -161,6 +163,11 @@ def parse_records_from_csv(
         
     # Create DataRecord objects from the DataFrame
     records = []
+    bgc_accessions = set()
+    cstarter_accessions = set()
+    superkingdoms = Counter()
+    genera = Counter()
+    species = Counter()
     for _, row in df.iterrows():
         try:
             LOGGER.debug(f"Record:\n\tstarter_smiles={row[cname_starter_smiles]}\n\tcategory_starter={row[cname_starter_category]}\n\tgenus_producing_organism={row[cname_genus]}\n\tspecies_producing_organism={row[cname_species]}\n")
@@ -177,6 +184,14 @@ def parse_records_from_csv(
             LOGGER.warning(f"Skipping row due to missing COOH group: {e}")
             continue
         records.append(record)
+        bgc_accession = row["mibig_v4_accession"]
+        cstarter_accession = row["cs_accession"]
+        if bgc_accession not in bgc_accessions:
+            superkingdoms[row["ncbi_organism_superkingdom"]] += 1
+            genera[row["ncbi_organism_genus"]] += 1
+            species[row["ncbi_organism_species"]] += 1
+        bgc_accessions.add(bgc_accession)
+        cstarter_accessions.add(cstarter_accession)
 
     LOGGER.info(f"Parsed {len(records)} records from {path}")
     return records
@@ -315,10 +330,10 @@ def find_longest_shortest_path_unweighted(
 
 def retrieve_backbone(mol: Chem.Mol) -> list[int]:
     """
-    Retrieve the backbone of a molecule, starting from the alpha carbon (COOH group).
+    Retrieve the backbone of a molecule, starting from the carboxyl carbon (C1; C3 is beta).
     
     :param mol: RDKit molecule object.
-    :return: List of atom indices representing the backbone starting from the alpha carbon.
+    :return: List of atom indices representing the backbone starting from the carboxyl carbon.
     :raises COOHGroupNotFoundError: If the molecule does not contain a COOH group.
     """
     graph_identity = {}  # atom idx -> atom symbol
@@ -335,10 +350,10 @@ def retrieve_backbone(mol: Chem.Mol) -> list[int]:
     matches = mol.GetSubstructMatches(pattern)
     if len(matches) == 0:
         raise COOHGroupNotFoundError("COOH group not found in the molecule.")
-    alpha_carbon_index = matches[0][0]
+    carboxyl_carbon_index = matches[0][0]
     
-    # Find the longest shortest path from the alpha carbon.
-    longest_shortest_path = find_longest_shortest_path_unweighted(graph, graph_identity, alpha_carbon_index)
+    # Find the longest shortest path from the carboxyl carbon.
+    longest_shortest_path = find_longest_shortest_path_unweighted(graph, graph_identity, carboxyl_carbon_index)
     return longest_shortest_path
 
 
@@ -350,7 +365,7 @@ def index_cstarter_functional_groups(
     max_height: int,
     max_backbone_len: int,
     set_xaxis_label: bool = False
-) -> None:
+) -> list[list[int]]:
     """
     Index functional groups along the molecule backbones and plot the results as a stacked bar chart.
 
@@ -361,7 +376,7 @@ def index_cstarter_functional_groups(
     :param max_height: Maximum height for the y-axis scale (determined externally).
     :param max_backbone_len: Maximum length of the backbone across all molecules.
     :param set_xaxis_label: Whether to set the x-axis label explicitly. Defaults to False.
-    :return: None.
+    :return: Functional-group counts and record counts at each backbone position.
     """
     label_colors: dict[str, str] = {
         "Carboxylic acid": "#e69f00",
@@ -378,26 +393,26 @@ def index_cstarter_functional_groups(
         for i, atom in enumerate(backbone):
             pattern = "C(=O)[OH]"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
-            if matches and atom == matches[0][0]:
+            if atom in {match[0] for match in matches}:
                 counts[i][0] += 1
 
-            pattern = "[C][CH1]([OH])[C]"
+            # Include primary/secondary/tertiary alcohols; exclude acid OH.
+            pattern = "[#6;!$([#6]=[O])]-[OX2H]"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
-            for match in matches:
-                if atom == match[1]:
-                    counts[i][1] += 1
+            if atom in {match[0] for match in matches}:
+                counts[i][1] += 1
 
-            pattern = "[C][CH1]([CH3])[C]"
+            pattern = "[#6]-[CH3]"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
-            for match in matches:
-                if atom == match[1]:
-                    counts[i][2] += 1
+            # Count branch-bearing sites, excluding the backbone's terminal methyl.
+            if atom in {match[0] for match in matches if match[1] not in backbone}:
+                counts[i][2] += 1
 
             pattern = "C1CO1"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
-            for match in matches:
-                if atom == match[0]:
-                    counts[i][3] += 1
+            # An epoxide modifies both carbon positions.
+            if atom in {index for match in matches for index in match[:2]}:
+                counts[i][3] += 1
 
             pattern = "[C][C](=O)[C]"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
@@ -405,7 +420,7 @@ def index_cstarter_functional_groups(
                 if atom == match[1]:
                     counts[i][4] += 1
 
-            pattern = "[C][NH2]"
+            pattern = "[C]-[NX3;H2;!$(N-C=O)]"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
             for match in matches:
                 if atom == match[0]:
@@ -415,7 +430,7 @@ def index_cstarter_functional_groups(
                         smiles = Chem.MolToSmiles(mol)
                         LOGGER.info(f"Molecule with amine at position 1: {smiles}")
 
-            pattern = "[C][NH][C]=[N]"
+            pattern = "[C]=[N]"
             matches = mol.GetSubstructMatches(Chem.MolFromSmarts(pattern))
             for match in matches:
                 if atom == match[0]:
@@ -429,7 +444,7 @@ def index_cstarter_functional_groups(
         [x[7] for x in counts],
         color="black",
         marker="o",
-        label="Length",
+        label="Records at position",
         markersize=3
     )
     ax.grid(axis="y", linestyle="--", alpha=0.3, zorder=0)
@@ -438,7 +453,7 @@ def index_cstarter_functional_groups(
     if set_xaxis_label:
         ax.set_xticks(
             [i for i in range(1, max_backbone_len + 1)],
-            ["1"] + [str(i) if i % 5 == 0 else "" for i in range(1, max_backbone_len)],
+            [str(i) if i in (1, 2, 3) or i % 5 == 0 else "" for i in range(1, max_backbone_len + 1)],
             fontsize=11
         )
     else:
@@ -474,9 +489,9 @@ def index_cstarter_functional_groups(
             )
             bottom = [sum(x) for x in zip(bottom, [x[i] for x in counts])]
 
-    ax.set_ylim(0, 1.1 * max_height)
+    ax.set_ylim(0, 1.1 * max(max_height, max(bottom)))
     if set_xaxis_label:
-        ax.set_xlabel(f"Backbone position (starting at carbonyl carbon)", fontsize=16)
+        ax.set_xlabel("Carbon position (C1 = carboxyl; C3 = β)", fontsize=16)
 
     ax.legend(
         markerfirst=False,
@@ -484,6 +499,7 @@ def index_cstarter_functional_groups(
         fontsize="14",
         title=f"{category} properties"
     )
+    return counts
 
 
 def main() -> None:
@@ -528,15 +544,17 @@ def main() -> None:
     labels_category = np.array([mol.category_starter for mol in records])
 
     backbones, backbone_mols, backbone_carbons = [], [], []
+    ars = 0
     for mol, label in zip(starter_mols, labels_category):
         if label in SANCTIONED_LABELS:
             backbone_inds = retrieve_backbone(mol)
             backbones.append(backbone_inds)
             if label != "AR":
-                backbone_carbon_count = str(Chem.MolToSmiles(mol)).upper().count("C")
+                backbone_carbon_count = sum(atom.GetAtomicNum() == 6 for atom in mol.GetAtoms())
                 backbone_carbons.append(backbone_carbon_count)
-
-            backbone_mols.append(mol)
+                backbone_mols.append(mol)  # Saturation panel: aliphatic starters only.
+            else:
+                ars += 1
         else:
             backbones.append([])
     # backbone_lens = [len(backbone) for backbone in backbones]
@@ -587,9 +605,9 @@ def main() -> None:
     ax8.bar(range(1, max_backbone_len + 1), bond_orders_1_heights, color="#f9e11b", edgecolor="black", label=f"Single bonds ({sum(bond_orders_1_heights)})", bottom=[sum(x) for x in zip(bond_orders_2_heights, bond_orders_3_heights)], facecolor="#ceccca")
     ax8.set_ylim(0, 1.1 * max([sum(x) for x in zip(bond_orders_1_heights, bond_orders_2_heights, bond_orders_3_heights)]))
     ax8.set_xticks(
-        [0.5] + [i + 0.5 for i in range(1, max_backbone_len+1)], 
-        ["1"] + [str(i + 1) if (i + 1) % 5 == 0 else "" for i in range(0, max_backbone_len)],
-        fontsize=11
+        range(1, max_backbone_len + 1),
+        [f"{i}–{i + 1}" if i in (1, 2, 3) or i % 5 == 0 else "" for i in range(1, max_backbone_len + 1)],
+        fontsize=11, rotation=45
     )
     ax8.set_yticks(
         [i for i in range(0, int(1.1 * max([sum(x) for x in zip(bond_orders_1_heights, bond_orders_2_heights, bond_orders_3_heights)])), 50)],
@@ -600,11 +618,11 @@ def main() -> None:
     # Change order of labels in legend: single > double
     handles, labels = ax8.get_legend_handles_labels()
     order = [1, 0]
-    ax8.legend([handles[idx] for idx in order], [labels[idx] for idx in order], fontsize=14, title_fontsize=16, title="Saturation")
+    ax8.legend([handles[idx] for idx in order], [labels[idx] for idx in order], fontsize=14, title_fontsize=16, title="Aliphatic saturation")
 
     ax8.grid(axis="y", linestyle="--", alpha=0.5)
     
-    ax8.set_xlabel(f"Backbone position (starting at {ALPHA_GREEK}-carbon)", fontsize=16)
+    ax8.set_xlabel("Backbone bond (C1 = carboxyl carbon)", fontsize=16)
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Column 1, row 0: Backbone length distribution
@@ -625,7 +643,7 @@ def main() -> None:
         [str(i) for i in range(0, int(1.1 * max_bin_size), 20)],
         fontsize=11
     )
-    ax7.set_xlabel(f"Backbone size (number of carbons)", fontsize=16)
+    ax7.set_xlabel("Starter size (total carbon atoms)", fontsize=16)
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Column 0-1, row 1-2: PCA plot of all starter structures
@@ -641,7 +659,7 @@ def main() -> None:
 
     # Index LCFA starters.
     ax3 = fig.add_subplot(sub_gs2[3, 0])
-    index_cstarter_functional_groups(
+    lcfa_counts = index_cstarter_functional_groups(
         ax3,
         [m for m, l in zip(starter_mols, labels_category) if l == "LCFA"],
         [b for b, l in zip(backbones, labels_category) if l == "LCFA"],
@@ -653,7 +671,7 @@ def main() -> None:
 
     # Index MCFA starters.
     ax4 = fig.add_subplot(sub_gs2[2, 0])
-    index_cstarter_functional_groups(
+    mcfa_counts = index_cstarter_functional_groups(
         ax4,
         [m for m, l in zip(starter_mols, labels_category) if l == "MCFA"],
         [b for b, l in zip(backbones, labels_category) if l == "MCFA"],
@@ -665,7 +683,7 @@ def main() -> None:
 
     # Index SCFA starters.
     ax5 = fig.add_subplot(sub_gs2[1, 0])
-    index_cstarter_functional_groups(
+    scfa_counts = index_cstarter_functional_groups(
         ax5,
         [m for m, l in zip(starter_mols, labels_category) if l == "SCFA"],
         [b for b, l in zip(backbones, labels_category) if l == "SCFA"],
@@ -674,6 +692,14 @@ def main() -> None:
         max_backbone_len,
         set_xaxis_label=False
     )
+
+    counts_by_class = [scfa_counts, mcfa_counts, lcfa_counts]
+    beta_oh = sum(counts[2][1] for counts in counts_by_class)
+    beta_positions = sum(counts[2][7] for counts in counts_by_class)
+    total_oh = sum(row[1] for counts in counts_by_class for row in counts)
+    LOGGER.info("beta-hydroxylation: %d/%d C3 positions (%.1f%%); %d/%d hydroxyl sites (%.1f%%)",
+                beta_oh, beta_positions, 100 * beta_oh / beta_positions if beta_positions else 0,
+                beta_oh, total_oh, 100 * beta_oh / total_oh if total_oh else 0)
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Report on AR structures

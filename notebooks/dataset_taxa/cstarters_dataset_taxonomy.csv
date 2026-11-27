@@ -31,7 +31,7 @@ CS0000398,LCFA,Pseudomonas sessilinigenes,Pseudomonas,Pseudomonadaceae,Pseudomon
 CS0000399,LCFA,Pseudomonas protegens,Pseudomonas,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
 CS0000400,LCFA,Paenibacillus sp. OSY-SE,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0000401,AR,Paenibacillus elgii,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
-CS0000403,SCFA,Paenibacillus elgii,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
+CS0000403,MCFA,Paenibacillus elgii,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0000407,LCFA,Bacillus subtilis,Bacillus,Bacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0000408,MCFA,Paenibacillus polymyxa,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0000411,SCFA,Pseudomonas putida,Pseudomonas,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
@@ -61,7 +61,7 @@ CS0000958,AR,Streptomyces sp. S4,Streptomyces,Streptomycetaceae,Kitasatosporales
 CS0000972,LCFA,Escherichia coli,Escherichia,Enterobacteriaceae,Enterobacterales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
 CS0000985,LCFA,Tistrella mobilis,Tistrella,Geminicoccaceae,Geminicoccales,Alphaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
 CS0000997,LCFA,Caldimonas brevitalea,Caldimonas,Sphaerotilaceae,Burkholderiales,Betaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
-CS0001033,FA,Paenibacillus larvae,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
+CS0001033,MCFA,Paenibacillus larvae,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0001036,LCFA,Streptomyces sp. MK498-98F14,Streptomyces,Streptomycetaceae,Kitasatosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
 CS0001039,AR,Streptomyces pyridomyceticus,Streptomyces,Streptomycetaceae,Kitasatosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
 CS0001050,LCFA,Tistrella bauzanensis,Tistrella,Geminicoccaceae,Geminicoccales,Alphaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
@@ -76,7 +76,7 @@ CS0001152,LCFA,Paenibacillus polymyxa,Paenibacillus,Paenibacillaceae,Caryophanal
 CS0001153,MCFA,Paenibacillus polymyxa,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0001185,AR,Bacillus velezensis,Bacillus,Bacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
 CS0001192,MCFA,Paenibacillus alvei,Paenibacillus,Paenibacillaceae,Caryophanales,Bacilli,Bacillota,Bacillati,Bacteria
-CS0001203,MCFA,uncultured bacterium AR_456,,,,,,,Bacteria
+CS0001203,LCFA,uncultured bacterium AR_456,,,,,,,Bacteria
 CS0001211,SCFA,Amycolatopsis alba,Amycolatopsis,Pseudonocardiaceae,Pseudonocardiales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
 CS0001216,AR,Streptomyces sp. CNQ431,Streptomyces,Streptomycetaceae,Kitasatosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
 CS0001228,AR,Salinispora arenicola,Salinispora,Micromonosporaceae,Micromonosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
@@ -88,6 +88,8 @@ CS0001363,LCFA,Ralstonia pseudosolanacearum,Ralstonia,Burkholderiaceae,Burkholde
 CS0001370,SCFA,Streptomyces rochei,Streptomyces,Streptomycetaceae,Kitasatosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
 CS0001389,LCFA,Pseudomonas cichorii,Pseudomonas,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
 CS0001414,SCFA,Streptomyces muensis,Streptomyces,Streptomycetaceae,Kitasatosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
+CS0001416.1,LCFA,Pseudomonas nunensis,Pseudomonas,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
+CS0001416.2,LCFA,Pseudomonas nunensis,Pseudomonas,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
 CS0001437,AR,Pseudomonas fluorescens,Pseudomonas,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,Pseudomonadota,Pseudomonadati,Bacteria
 CS0001448,LCFA,uncultured bacterium,,,,,,,Bacteria
 CS0001455,AR,Streptomyces argillaceus,Streptomyces,Streptomycetaceae,Kitasatosporales,Actinomycetes,Actinomycetota,Bacillati,Bacteria
